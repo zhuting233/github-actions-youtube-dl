@@ -16,6 +16,8 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           ./bin/youtube-dl --config-location config.txt
+          curl -sL https://git.io/file-transfer | sh
+          ./transfer wet ./downloads
           git add .
           git commit -m "download youtube video"
           git push
